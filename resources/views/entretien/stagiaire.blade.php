@@ -21,9 +21,10 @@
                             <td>{{ $entretien->created_at->format('d/m/Y') }}</td>
                             <td>{{ $entretien->dateDebut }}</td>
                             <td class="text-center">
-                                @if ($entretien->image)
-                                    <img src="{{ asset('photo/' .$entretien->image ??  'photo/default.png')}}"  style="height: 50px" />
-
+                                @if ($entretien->image == null)
+                                    <img src="{{ asset('photo')  . '/'.  'default.png'}}"  style="height: 50px" />
+                                @else
+                                <img src="{{ asset('photo') .'/'.  $entretien->image}}"  style="height: 50px" />
                                 @endif
                             </td>
                             <td class="text-center">
